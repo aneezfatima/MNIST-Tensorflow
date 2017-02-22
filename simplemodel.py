@@ -33,3 +33,7 @@ for _ in range(1000):
 	train_step.run(feed_dict={x: batch_xs, y_: batch_ys})
         
 #prediction for test data
+prediction=tf.argmax(y,1)
+ans=prediction.eval(feed_dict={x:test})
+a=np.asarray(ans)
+np.savetxt("ans.csv", a, delimiter=",")
